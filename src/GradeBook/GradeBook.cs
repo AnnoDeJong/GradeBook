@@ -5,13 +5,10 @@ namespace GradeBook
 {
     public class Book
     {
-        
-        private List<double> grades;
-        private string name;
         public Book(string name)
         {
             grades = new List<double>();
-            this.name = name;
+            Name = name;
         }
 
         public void AddGrade(double grade)
@@ -38,5 +35,8 @@ namespace GradeBook
 
             return result;
         }
+
+        private List<double> grades;
+        public string Name;
     }
 }
