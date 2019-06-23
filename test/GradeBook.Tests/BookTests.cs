@@ -6,14 +6,21 @@ namespace GradeBook.Tests
     public class BookTests
     {
         [Fact]
-        public void GradeValueValidatio()
+        public void GradeValueValidation()
         {
             //arrange
-            var book = new Book("");
+            var book = new Book("Test Grade Book");
             
             //act
-            book.AddGrade(105);
-
+            try
+            {
+                book.AddGrade(105);
+            }
+            catch(ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
             //assert
             Assert.True(!book.GradeExists(105));
         }
@@ -21,7 +28,7 @@ namespace GradeBook.Tests
         public void BookCalculatesAnAverageGrade()
         {
             //arrange
-            var book = new Book("");
+            var book = new Book("Test Grade Book");
             book.AddGrade(89.1);
             book.AddGrade(90.5);
             book.AddGrade(77.3);
